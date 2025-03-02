@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>US Map - Politician Tracker</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <nav>
+            <div class="logo">Politician Tracker</div>
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="new_politicians.html">New Politicians</a></li>
+                <li><a href="map.html">Map</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section id="us-map">
+            <!-- Example using an SVG map -->
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 600">
+                <path id="CA" d="..." onclick="fetchPoliticiansByState('CA')" fill="#ccc" stroke="#fff"></path>
+                <path id="NY" d="..." onclick="fetchPoliticiansByState('NY')" fill="#ccc" stroke="#fff"></path>
+                <!-- Add more paths for each state -->
+            </svg>
+        </section>
+
+        <section id="state-politicians">
+            <!-- Politicians will be displayed here -->
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2024 Politician Tracker. All rights reserved.</p>
+    </footer>
+
+    <script>
+        async function fetchPoliticiansByState(state) {
+            const apiKey = '4Hs7xoXStKnuSSpzPPuQgaOBUFmymHnCWeCBYGsK';
+            const endpoint = `https://api.open.fec.gov/v1/candidates/?state=${state}&api_key=${apiKey}`;
+
+            try {
+                const response = await fetch(endpoint);
+
+                if (!response.ok) {
+                    throw new Error('Network response was not ok');
+                }
+
+                const data = await response.json();
+                console.log('Politicians in', state, ':', data);
+                displayPoliticians(data.results);
+            } catch (error) {
+                console.error('Error fetching politicians:', error);
+            }
+        }
+
+        function displayPoliticians(politicians) {
+            const container = document.getElementById('state-politicians');
+            container.innerHTML = '';
+
+            politicians.forEach(politician => {
+                const card = document.createElement('div');
+                card.className = 'politician-card';
+                card.innerHTML = `
+                    <h3>${politician.name}</h3>
+                    <p>Party: ${politician.party || 'N/A'}</p>
+                `;
+                container.appendChild(card);
+            });
+        }
+    </script>
+</body>
+</html> 

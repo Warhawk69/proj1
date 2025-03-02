@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Policy Tracker</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <nav>
+            <div class="logo">Policy Tracker</div>
+            <ul class="nav-links">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#policies">Policies</a></li>
+                <li><a href="politicians.html">Politicians</a></li>
+                <li><a href="new_politicians.html">New Politicians</a></li>
+                <li><a href="#categories">Categories</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="map.html">Map</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section id="search-section">
+            <div class="search-container">
+                <input type="text" id="policy-search" placeholder="Search policies...">
+                <button onclick="searchPolicies()">Search</button>
+            </div>
+        </section>
+
+        <section id="policy-grid">
+            <div class="filter-container">
+                <select id="category-filter">
+                    <option value="all">All Categories</option>
+                    <option value="economic">Economic</option>
+                    <option value="environmental">Environmental</option>
+                    <option value="healthcare">Healthcare</option>
+                    <option value="education">Education</option>
+                </select>
+                <select id="status-filter">
+                    <option value="all">All Statuses</option>
+                    <option value="proposed">Proposed</option>
+                    <option value="in-progress">In Progress</option>
+                    <option value="implemented">Implemented</option>
+                    <option value="failed">Failed</option>
+                </select>
+            </div>
+            <div id="policies-container">
+                <!-- Policies will be dynamically inserted here -->
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2024 Policy Tracker. All rights reserved.</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html> 

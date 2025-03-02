@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>New Politician Tracker</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <nav>
+            <div class="logo">New Politician Tracker</div>
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="new_politicians.html">New Politicians</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section id="new-politician-grid">
+            <div class="search-container">
+                <input type="text" id="new-politician-search" placeholder="Find by name">
+                <select id="party-filter">
+                    <option value="all">All Parties</option>
+                    <option value="Democratic">Democratic</option>
+                    <option value="Republican">Republican</option>
+                    <option value="Independent">Independent</option>
+                </select>
+                <select id="chamber-filter">
+                    <option value="all">All Chambers</option>
+                    <option value="Senate">Senate</option>
+                    <option value="House of Representatives">House of Representatives</option>
+                </select>
+                <select id="state-filter">
+                    <option value="all">All States</option>
+                    <option value="New York">New York</option>
+                    <option value="California">California</option>
+                    <!-- Add more states as needed -->
+                </select>
+                <button onclick="searchNewPoliticians()">Search</button>
+            </div>
+            <div id="new-politicians-container">
+                <!-- Politician cards will be dynamically inserted here -->
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2024 New Politician Tracker. All rights reserved.</p>
+    </footer>
+
+    <script src="new_script.js"></script>
+</body>
+</html> 
